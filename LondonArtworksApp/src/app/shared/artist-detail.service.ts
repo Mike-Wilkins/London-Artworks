@@ -8,7 +8,12 @@ import { HttpClient} from '@angular/common/http'
 })
 export class ArtistDetailService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   formData:ArtistDetail = new ArtistDetail();
+  readonly baseURL = 'https://localhost:44337/londonartworks'
+
+  postArtistDetail(){
+    return this.http.post(this.baseURL + "/artist/create", this.formData)
+  }
 }
